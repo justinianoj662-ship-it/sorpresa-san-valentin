@@ -1,7 +1,7 @@
 function verificar(){
     var clave = document.getElementById("clave").value.toLowerCase();
 
-    if(clave === "misusy"){  // ← CAMBIA AQUÍ SI QUIERES OTRA PALABRA
+    if(clave === "mi susy"){  // ← CAMBIA AQUÍ SI QUIERES OTRA PALABRA
 
         document.getElementById("inicio").style.display="none";
         document.getElementById("contenido").style.display="block";
