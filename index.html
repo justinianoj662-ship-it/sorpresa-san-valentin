@@ -1,33 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestra Historia Infinita ❤️</title>
+<title>Tengo algo que decirte...</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<canvas id="stars"></canvas>
-
-<div class="bloqueo" id="bloqueo">
-    <h2>Ingresa la palabra secreta 💕</h2>
-    <input type="password" id="clave" placeholder="Escribe aquí">
-    <button onclick="verificar()">Entrar ✨</button>
-    <p id="error"></p>
-</div>
-
-<div class="juego" id="juego">
-    <h2>Toca 5 corazones para desbloquear la carta ❤️</h2>
-    <p>Corazones atrapados: <span id="contador">0</span>/5</p>
+<div class="pantalla-inicial" id="inicio">
+    <h1>Tengo algo que decirte...</h1>
+    <p>Pero primero necesito saber que eres tú 💌</p>
+    <input type="password" id="clave" placeholder="Escribe nuestra palabra secreta">
+    <button onclick="verificar()">Entrar</button>
 </div>
 
 <div class="contenido" id="contenido">
-
-    <h1 class="titulo">Jonathan ❤️ Susy</h1>
-    <p class="subtitulo">Una historia escrita bajo las estrellas ✨</p>
+    <h2 id="mensaje"></h2>
 
     <div class="galeria">
         <img src="foto1.jpeg">
@@ -36,23 +25,12 @@
         <img src="foto4.jpeg">
     </div>
 
-    <div class="carta" id="carta">
-        <h2>Para ti, mi amor eterno ❤️</h2>
-        <p>
-        Entre millones de estrellas, te volvería a elegir.
-        Gracias por cada instante, cada sonrisa y cada abrazo.
-        Eres mi destino favorito.
-        Te amo más allá del infinito 💫
-        </p>
-    </div>
+    <button class="final-btn" onclick="mensajeFinal()">No lo cierres todavía...</button>
 
-    <h2 id="final"></h2>
+    <p id="extra" class="extra"></p>
 
+    <audio id="musica" src="cancion.mp3"></audio>
 </div>
-
-<audio id="musica" loop>
-    <source src="cancion.mp3" type="audio/mpeg">
-</audio>
 
 <script src="script.js"></script>
 </body>
