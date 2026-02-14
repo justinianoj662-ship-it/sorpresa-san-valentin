@@ -1,0 +1,75 @@
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:black;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.bloqueo, .juego{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.contenido{
+    display:none;
+    padding:20px;
+}
+
+input, button{
+    padding:12px;
+    border-radius:20px;
+    border:none;
+    margin:10px;
+}
+
+button{
+    cursor:pointer;
+}
+
+.titulo{
+    font-size:40px;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px pink; }
+    to{ text-shadow:0 0 30px red; }
+}
+
+.galeria img{
+    width:220px;
+    height:260px;
+    object-fit:cover;
+    margin:10px;
+    border-radius:20px;
+    box-shadow:0 0 20px hotpink;
+}
+
+.carta{
+    display:none;
+    background:white;
+    color:#ff2e63;
+    padding:20px;
+    border-radius:20px;
+    max-width:500px;
+    margin:20px auto;
+}
+
+.corazon-juego{
+    position:absolute;
+    font-size:30px;
+    cursor:pointer;
+}
