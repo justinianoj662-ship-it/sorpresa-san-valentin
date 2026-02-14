@@ -1,65 +1,39 @@
-
-// contraseña
 function verificar(){
     var clave = document.getElementById("clave").value.toLowerCase();
-    if(clave === "misusy"){
-        document.getElementById("bloqueo").style.display="none";
-        iniciarJuego();
-        document.getElementById("musica").play();
+
+    if(clave === "misusy"){  // ← CAMBIA AQUÍ SI QUIERES OTRA PALABRA
+
+        document.getElementById("inicio").style.display="none";
+        document.getElementById("contenido").style.display="block";
+
+        var musica = document.getElementById("musica");
+        musica.play();
+
+        escribirMensaje();
+
     }else{
-        document.getElementById("error").innerHTML="Esa no es 😅";
+        alert("Esa no es nuestra palabra secreta 💔");
     }
 }
 
-// juego corazones
-let atrapados = 0;
+function escribirMensaje(){
+    var texto = "No es solo hoy... es cada momento contigo lo que hace que mi mundo tenga sentido. 💖";
+    var i = 0;
+    var velocidad = 50;
 
-function iniciarJuego(){
-    document.getElementById("juego").style.display="flex";
-    generarCorazon();
-}
-
-function generarCorazon(){
-    const heart=document.createElement("div");
-    heart.classList.add("corazon-juego");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*90+"vw";
-    heart.style.top=Math.random()*80+"vh";
-    heart.onclick=function(){
-        heart.remove();
-        atrapados++;
-        document.getElementById("contador").innerText=atrapados;
-        if(atrapados<5){
-            generarCorazon();
-        }else{
-            document.getElementById("juego").style.display="none";
-            document.getElementById("contenido").style.display="block";
-            document.getElementById("carta").style.display="block";
-            document.getElementById("final").innerHTML="¿Quieres seguir escribiendo esta historia conmigo para siempre? 💍❤️";
+    function maquina(){
+        if(i < texto.length){
+            document.getElementById("mensaje").innerHTML += texto.charAt(i);
+            i++;
+            setTimeout(maquina, velocidad);
         }
-    };
-    document.body.appendChild(heart);
+    }
+
+    maquina();
 }
 
-// fondo estrellas
-var canvas=document.getElementById("stars");
-var ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-var stars=[];
-for(let i=0;i<200;i++){
-    stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+function mensajeFinal(){
+    var extra = document.getElementById("extra");
+    extra.innerHTML = "Gracias por existir... y por dejarme amarte. 💍✨";
+    extra.style.opacity = "1";
 }
-
-function drawStars(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="white";
-    stars.forEach(s=>{
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-        ctx.fill();
-    });
-}
-
-setInterval(drawStars,50);
